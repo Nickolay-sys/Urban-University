@@ -1,0 +1,4 @@
+this is special text for tests
+second row of text
+third row of text
+forth row of text
