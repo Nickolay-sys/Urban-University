@@ -29,7 +29,7 @@ food.remove('banana')
 print(food)
 
 """
-Также маожно использовать и команды
+Также можно использовать и команды
 """
 print('coconut' in food)
 print('coconut' not in food)
