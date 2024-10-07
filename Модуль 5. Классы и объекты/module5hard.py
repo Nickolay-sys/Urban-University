@@ -45,11 +45,12 @@ import hashlib
 class User:
     def __init__(self, nickname, password, age):
         self.nickname = nickname
-        self.password = password
+        self.password = self.hash_pasword(password)
         self.age = age  
         
     def hash_pasword(self,password):
-        return hash(password)
+        hashed_passord = hashlib.sha256((password).encode()).hexdigest()
+        return hashed_passord
     
     def __eq__(self, other):
         return self.nickname == other.nickname
@@ -78,13 +79,17 @@ class UrTube():
         
     def log_in(self, nickname, password):
         for user in self.users:
-            if  user.nickname == nickname and user.password == password:
-                self.current_user = user
-                print(f'Пользователь {nickname} вошёл')
-                return True
-            else:
-                print(f'Неверный логин и/или пароль')
-                return False   
+            if  user.nickname == nickname:
+                hashed_password = user.hashed_password(password)
+                if hashed_password == user.password:
+                    self.current_user = user
+                    print(f'Пользователь {nickname} вошёл')
+                    return True
+                else:
+                    print(f'Неверный пароль')
+                    return False   
+        print(f'Пользователь {nickname} не найден')
+        return False
                             
     def register(self, nickname, password, age):
         new_user = User(nickname, password, age)
@@ -104,14 +109,17 @@ class UrTube():
     def add(self, *videos):
         for video in videos:
             if video not in videos:
-                self.videos.append(video)
-            #     print(f'Видео {video.title} добавлено')
-            # else:
-            #     print(f'Видео {video.title} уже существует')
+                print(f'Такого видео нет')
+            else:
+                self.videos.append(video.title)   
+                # print(f'{self.videos}')
+            
                 
     def get_videos(self, search_word):
-        search_word_lower = search_word.lower()
-        return [video.title for video in self.videos if search_word_lower in video.title.lower()]
+        print(f'{self.videos}')
+        self.search_word_lower = search_word.lower()
+        if self.search_word_lower in self.videos:
+            return 
     
     def watch_video(self, title):
         if not self.current_user:
@@ -141,7 +149,7 @@ print(ur.get_videos('лучший'))
 print(ur.get_videos('ПРОГ'))
 
 # Проверка на вход пользователя и возрастное ограничение
-# ur.watch_video('Для чего девушкам парень программист?')
+ur.watch_video('Для чего девушкам парень программист?')
 ur.register('vasya_pupkin', 'lolkekcheburek', 13)
 ur.watch_video('Для чего девушкам парень программист?')
 ur.register('urban_pythonist', 'iScX4vIJClb9YQavjAgF', 25)
