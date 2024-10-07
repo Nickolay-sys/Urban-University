@@ -40,7 +40,7 @@
                 Должно выводиться сообщение: "Вам нет 18 лет, пожалуйста покиньте страницу"
             После воспроизведения нужно выводить: "Конец видео"
 """
-from time import sleep
+import time
 import hashlib
 class User:
     def __init__(self, nickname, password, age):
@@ -61,7 +61,7 @@ class User:
 class Video:
     def __init__(self,title, duration, adult_mode=False):
         self.title = title
-        self.durations = duration
+        self.duration = duration
         self.time_now = 0
         self.adult_mode = adult_mode
         
@@ -98,7 +98,7 @@ class UrTube():
         else:
             self.users.append(new_user)
             self.current_user = new_user
-            
+                    
     def log_out(self):
         if self.current_user:
             print(f'Пользователь {self.current_user} вышел')
@@ -119,11 +119,11 @@ class UrTube():
     
     def watch_video(self, title):
         if not self.current_user:
-            print('Войдите в аккаунт, чтобы смотреть видео')
-            
+            print('Войдите в аккаунт, чтобы смотреть видео') 
+            return
         for video in self.videos:
             if video.title == title:
-                if video.adult_mode and self.current_user.user.age < 18:
+                if video.adult_mode and self.current_user.age < 18:
                     print('Вам нет 18 лет, пожалуйста покиньте страницу')
                     return
                 for second in range(video.time_now + 1, video.duration + 1):
