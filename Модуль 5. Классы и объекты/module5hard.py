@@ -108,23 +108,19 @@ class UrTube():
         
     def add(self, *videos):
         for video in videos:
-            if video not in videos:
-                print(f'Такого видео нет')
+            if any(video.title.lower() == existing_video.title.lower() for existing_video in self.videos):
+                print(f'Видео {video.title} уже существует')
             else:
-                self.videos.append(video.title)   
-                # print(f'{self.videos}')
-            
-                
+                self.videos.append(video) 
+             
     def get_videos(self, search_word):
-        print(f'{self.videos}')
-        self.search_word_lower = search_word.lower()
-        if self.search_word_lower in self.videos:
-            return 
+        search_word_lower = search_word.lower()
+        return [video.title for video in self.videos if search_word_lower in video.title.lower()]
     
     def watch_video(self, title):
         if not self.current_user:
             print('Войдите в аккаунт, чтобы смотреть видео')
-            return
+            
         for video in self.videos:
             if video.title == title:
                 if video.adult_mode and self.current_user.user.age < 18:
