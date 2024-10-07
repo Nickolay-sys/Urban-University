@@ -1,5 +1,8 @@
+"""
+У объектов есть атрибуты класса, а у класса нет атрибутов этих объектов
+"""
 class Human:
-    head = True
+    head = True # классовый атрибут
     
     def __init__(self, name, age):
         self.name = name
@@ -44,3 +47,4 @@ Max.birthday()
 print(f'Денис младше Макса? {Den < Max}')
 print(f'Макс старше Дениса? {Max > Den}')
 print(Human.head)
+print(Human.__dict__)

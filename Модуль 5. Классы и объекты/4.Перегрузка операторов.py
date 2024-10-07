@@ -1,3 +1,6 @@
+"""
+Встроенные операторы можно изменить. Это называется перегрузкой
+"""
 class Human:
     def __init__(self, name, age):
         self.name = name

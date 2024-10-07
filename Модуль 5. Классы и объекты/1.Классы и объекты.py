@@ -1,4 +1,3 @@
-
 class Human:        # class ~ инструкция которую можно вызывать к разным объектам
     def __init__(self, name):       # __init__ запускает код в class
         self.name = name        # self  указывает на самого себя
