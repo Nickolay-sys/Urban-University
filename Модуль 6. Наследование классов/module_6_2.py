@@ -6,10 +6,6 @@ class Vehicle:
         self.__engine_power = engine_power
         self.__color = color
     
-        
-class Sedan(Vehicle):
-    __PASSENGERS_LIMIT = 5
-    
     def get_model(self):
         print(f'Модель: {self._Vehicle__model}')
     
@@ -33,6 +29,12 @@ class Sedan(Vehicle):
             self._Vehicle__color = new_color
         else:
             print(f'Нельзя сменить цвет на {new_color}')
+    
+        
+class Sedan(Vehicle):
+    __PASSENGERS_LIMIT = 5
+    
+
         
 
 # Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
