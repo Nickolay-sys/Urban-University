@@ -1,13 +1,17 @@
 import math
 class Figure:
     sides_count = 0
-    def __init__(self, color: list, *sides: int, filled: bool = True):
-        if len(sides) != self.sides_count:
-            self.__sides = [1*self.sides_count]
-        else:
-            self.__sides = [i for i in sides]
-        self.__color = list(color)
-        self.filled = filled
+    # def __init__(self, color: list, *sides: int, filled: bool = True):
+    #     if len(sides) != self.sides_count:
+    #         self.__sides = [1*self.sides_count]
+    #     else:
+    #         self.__sides = [i for i in sides]
+        # self.__color = list(color)
+        # self.filled = filled
+    def __init__(self, color: list, *sides: int):
+        self.__color = [*color] if self.__is_valid_color(*color) else [0,0,0]
+        self.__sides = [*sides] if len(sides) == self.sides_count else [1] * self.sides_count
+        self.filled = False
         
     def get_color(self):
         return self.__color
@@ -79,24 +83,24 @@ cube1 = Cube((222, 35, 130), 6)
 print('Проверка на изменение цветов')
 # Проверка на изменение цветов:
 print(circle1.get_color())
-circle1.set_color(55, 66, 77) # Изменится
-cube1.set_color(300, 70, 15) # Не изменится
+circle1.set_color(255, 255, 255) # Изменится
+# cube1.set_color(300, 70, 15) # Не изменится
 print(circle1.get_color())
-print(cube1.get_color())
+# print(cube1.get_color())
 
-print('Проверка на изменение сторон:')
-# Проверка на изменение сторон:
-cube1.set_sides(5, 3, 12, 4, 5) # Не изменится
-circle1.set_sides(15) # Изменится
-print(cube1.get_sides())
-print(circle1.get_sides())
+# print('Проверка на изменение сторон:')
+# # Проверка на изменение сторон:
+# cube1.set_sides(5, 3, 12, 4, 5) # Не изменится
+# circle1.set_sides(15) # Изменится
+# print(cube1.get_sides())
+# print(circle1.get_sides())
 
-print('Проверка периметра (круга), это и есть длина:')
-# Проверка периметра (круга), это и есть длина:
-print(len(circle1))
+# print('Проверка периметра (круга), это и есть длина:')
+# # Проверка периметра (круга), это и есть длина:
+# print(len(circle1))
 
-print('Проверка объёма (куба):')
-# Проверка объёма (куба):
-print(cube1.get_volume())    
+# print('Проверка объёма (куба):')
+# # Проверка объёма (куба):
+# print(cube1.get_volume())    
         
         

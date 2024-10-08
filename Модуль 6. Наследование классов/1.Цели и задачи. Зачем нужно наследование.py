@@ -1,3 +1,7 @@
+"""
+Наследование нужно для передачи атрибута класса другим классам. 
+Используется для удобства и убирает необходимость прописывать общие атрибуты
+"""
 class Human:
     head = True
     
@@ -24,3 +28,4 @@ student.about()
 print(student.head)
 student.say_hello()
 teacher.say_hello()
+print(teacher.head)
