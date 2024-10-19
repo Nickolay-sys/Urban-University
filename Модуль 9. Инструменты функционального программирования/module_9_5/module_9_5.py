@@ -9,15 +9,18 @@ class Iterator:
         self.stop = stop
         self.step = step
         self.pointer = start
-        self.step_value = 1 if step >0 else -1
         
     def __iter__(self):
         self.pointer = self.start
         return self
     
     def __next__(self):
-        if (self.pointer + self.step) * self.step_value > self.stop * self.step_value:
-            raise StopIteration
+        if self.step > 0:
+            self.step_value = 1
+        else:
+            self.step_value = -1
+        if self.pointer * self.step_value > self.stop * self.step_value:
+            raise StopIteration    
         current_pointer = self.pointer
         self.pointer += self.step
         return current_pointer        
