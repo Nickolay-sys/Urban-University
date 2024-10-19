@@ -1,11 +1,8 @@
 # Lambda-функция:
-from typing import Any
-
-
 first = 'Мама мыла раму'
 second = 'Рамена мало было'
-
-print(list(map(lambda word: word in first,second)))
+result_1 = list(map(lambda x,y: x == y, first,second))
+print(result_1)
 
 
 # Замыкание:
@@ -29,7 +26,8 @@ class MysticBall():
         self.words = words
         
     def __call__(self):
-        return choice(self.words)
+        result = choice(self.words)
+        return result
     
 first_ball = MysticBall('Да', 'Нет', 'Наверное')
 print(first_ball())
