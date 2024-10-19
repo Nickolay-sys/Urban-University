@@ -20,11 +20,12 @@ class Iterator:
         else:
             self.step_value = -1
         if self.pointer * self.step_value > self.stop * self.step_value:
-            raise StopIteration    
+            raise StopIteration
         current_pointer = self.pointer
-        self.pointer += self.step
-        return current_pointer        
-        
+        self.pointer += self.step 
+        return current_pointer
+
+    
 try:
     iter1 = Iterator(100, 200, 0)
     for i in iter1:
