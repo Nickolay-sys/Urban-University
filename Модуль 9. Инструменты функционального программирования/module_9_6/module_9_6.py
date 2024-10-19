@@ -5,8 +5,7 @@ def all_variants(text):
         if lines != letters:
             yield lines + letters
     yield text
-              
-        
+                     
 a = all_variants("abc")
 for i in a:
     print(i)
