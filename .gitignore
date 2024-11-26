@@ -1,6 +1,9 @@
 /.idea/
 /.venv/
 /.venv_for_module_11_2/
+/.venv_for_module_13/
 /Памятка/
 /requirements.txt
 Модуль 13. Основы асинхронного программирования на базе фреймворка aiogram/bot.py
+requirements_module_13.txt
+requirements_module_11.txt
