@@ -35,5 +35,8 @@ async def update_user(user_id: Annotated[int, Path(gt=0,
 
 @app.delete('/user/{user_id}')
 async def delete_user(user_id) -> str:
-    del users[user_id]
-    return f'The user {user_id} has been deleted'
+    if user_id in users:
+        del users[user_id]
+        return f'The user {user_id} has been deleted'
+    else:
+        return f'The user {user_id} was not found'
