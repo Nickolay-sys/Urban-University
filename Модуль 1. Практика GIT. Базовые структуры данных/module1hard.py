@@ -37,6 +37,7 @@ class Example:
             avg_grades.append(avg)
         dict_ = dict(zip(sort_stud,avg_grades))
         print(dict_)
+        
 Example()
 
     
