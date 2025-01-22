@@ -5,9 +5,7 @@ def platform(request):
     return render(request, "third_task/platform.html")
 
 def games(request):
-    context = {'games': ['Atomic Heart', 'Cyberpunk 2077',
-                             'PayDay 2']}
-    return render(request, "third_task/games.html", context)
+    return render(request, "third_task/games.html")
 
 def cart(request):
     return render(request, 'third_task/cart.html')
