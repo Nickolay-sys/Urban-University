@@ -1,13 +1,16 @@
+{% extends "fourth_task\menu.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title> Главая страница </title>
+        <title> Главная страница </title>
     </head>
     <body>
-        <h1>Главная страница</h1>
-        <h2> <a href="/platform/"> Главная </a> </h2>
-        <h2> <a href="/platform/games/"> Магазин </a> </h2>
-        <h2> <a href="/platform/cart/"> Корзина </a> </h2>
+        <pagename>
+            {% block pagename %}
+            <h1>Главная страница</h1>
+            {% endblock %}
+        </pagename>
     </body>
 </html>

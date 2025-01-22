@@ -1,3 +1,5 @@
+{% extends "fourth_task\menu.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,9 +7,26 @@
         <title> Корзина </title>
     </head>
     <body>
-        <h1> Извините, ваша корзина пуста</h1>
-        <button> 
-            <a href="/platform/"> Вернуться обратно </a> 
-        </button>
+        <pagename>
+            {% block pagename %}
+            <h1>Корзина</h1>
+            {%endblock%}
+        </pagename>
+
+        <menu>
+            {%block menu%}
+            {{block.super}}
+            {%endblock%}
+        </menu>
+
+        <content>
+            {%block content%}
+            <p>
+                <h3>
+                    Извините, ваша корзина пуста
+                </h3>
+            </p>
+            {%endblock%}
+        </content>
     </body>
 </html>

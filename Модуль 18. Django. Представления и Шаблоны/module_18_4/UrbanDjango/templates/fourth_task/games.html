@@ -1,20 +1,39 @@
+{% extends "fourth_task\menu.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title> Игры </title>
     </head>
     <body>
-        <h1> Игры </h1>
-        <ul>
-            <li> Atomic Heart  <button> Купить </button> </li>
-            <li> Cyberpunk 2077  <button> Купить </button> </li>
-            <li> PayDay 2  <button> Купить </button> </li>
-        </ul>
-        <p>
-            <a href="/platform/"> 
-                <button> Вернуться обратно </button> 
-            </a>
-        </p>
+        <pagename>
+            {% block pagename %}
+            <h1> Игры </h1>
+            {% endblock %}
+        </pagename>
+
+        <menu>
+            {% block menu %}
+            {{ block.super }}
+            {% endblock %}
+        </menu>
+
+        <content>
+            {% block content %}
+            <ul>
+            {% for game in games %}
+            <ul>
+                <li>
+                    {{ game }}
+                    <button>
+                        Купить
+                    </button>
+                </li>
+            </ul>
+            {% endfor %}
+            </ul>
+            {% endblock %}
+        </content>
     </body>
 </html>
