@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Циклы </title>
+    </head>
+    <body>
+        <h1>
+            {{list}}
+            {% for i in list %}
+                <p>{{ i|upper }}</p>
+            {% endfor %}
+            {% for i in list %}
+                <p>{{ i|title }}</p>
+            {% endfor %}
+            {{list_num}}
+            {% for i in list_num %}
+                <p>{{ i|floatformat:3 }}</p>
+            {% endfor %}
+        </h1>
+    </body>
+</html>

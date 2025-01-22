@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Условия </title>
+    </head>
+    <body>
+        <h1>
+            {{list}}
+            {{len_list}}
+            {% if len_list > 4 %}
+                <p>OK</p>
+            {% endif %}
+            {{list_num}}
+            {{sum_list_num}}
+            {% if sum_list_num > 10 %}
+                <p> Not OK</p>
+            {% endif %}
+        </h1>
+    </body>
+</html>
