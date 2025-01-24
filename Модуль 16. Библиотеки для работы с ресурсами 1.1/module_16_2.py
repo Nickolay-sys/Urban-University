@@ -15,7 +15,7 @@ async def read_adim() -> str:
 async def read_user_id(user_id: Annotated[int, Path(gt=0,
                                                     le=100,
                                                     title='Enter User ID',
-                                                    examples='1')
+                                                    example='1')
                                           ]
                        ) -> str:
     return f"Вы вошли как пользователь № {user_id}"
@@ -25,12 +25,12 @@ async def read_user(username: Annotated[str,
                                         Path(min_length=5,
                                              max_length= 20,
                                              title='Enter username',
-                                             examples='Nikolay') 
+                                             example='Nikolay') 
                                         ], 
                     age: Annotated[int, Path(ge=18,
                                              le=120,
                                              title="Enter age",
-                                             examples='26')
+                                             example='26')
                                    ]
                     ) -> str:
     return f'Информация о пользователе. Имя: {username}, Возраст: {age}'
