@@ -1,5 +1,5 @@
 """
-URL configuration for DjangoProject project.
+URL configuration for shop project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,20 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from djangoapp.views import *
-from django.views.generic import TemplateView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_page),
-    path('func/', func),
-    path('class/', TemplateView.as_view(template_name='ClassTemplate.html')),
-    path('cycle/', cycle),
-    path('if_else/', if_else),
-    path('static_show/', static_show),
-    path('inheritence/', inheritence),
-    path('get_request/', get_request),
-    path('post_request', post_request),
-    path('error_request', error_request),
+    path('', include('catalog.urls'))
 ]

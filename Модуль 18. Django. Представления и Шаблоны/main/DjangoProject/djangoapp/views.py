@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.http import HttpResponse
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+def home_page(request):
+    return render(request, 'home_page.html')
 
 def func(request):
     return render(request, 'func_template.html')
@@ -38,3 +39,17 @@ def static_show(request):
 
 def inheritence(request):
     return render(request, 'inheritence.html')
+
+def get_request(request):
+    name = request.GET.get('name', 'Guest')
+    age = request.GET.get('age', '0')
+    return HttpResponse(f'Hello, {name}, {age}')
+
+def post_request(request):
+    if request.method == 'POST':
+        message = request.POST.get('message', '')
+        return HttpResponse(f'You said {message}')
+    return render(request, 'post_request.html')
+
+def error_request(request):
+    return HttpResponse('Hello!', status=400, reason='!!!')

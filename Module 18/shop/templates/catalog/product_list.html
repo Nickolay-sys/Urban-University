@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+<h2>Список товаров</h2>
+
+<nav>
+    <a href="?">Все</a> |
+    <a href="?category=телефоны">Телефоны</a> |
+    <a href="?category=планшеты">Планшеты</a> |
+    <a href="?category=аксессуары">Аксессуары></a> |
+    <a href="?category=ноутбуки">Ноутбуки</a>
+</nav>
+
+<ul>
+    {% for product in products %}
+    <li>{{ product.name }} - {{ product.price }} P</li>
+    {% endfor %}
+</ul>
+{% endblock %}
